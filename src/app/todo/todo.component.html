@@ -1,0 +1,9 @@
+<ng-container *ngIf="todo | async as _todo">
+  UserId: {{ _todo.userId }}
+  <br />
+  Id: {{ _todo.id }}
+  <br />
+  Title: {{ _todo.title }}
+  <br />
+  Completed: {{ _todo.completed }}
+</ng-container>
