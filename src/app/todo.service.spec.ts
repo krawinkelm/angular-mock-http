@@ -28,6 +28,7 @@ describe('TodoService', () => {
 
   it('should perform a mocked http request', (done: DoneFn) => {
     const service: TodoService = TestBed.get(TodoService);
+    const httpMock: HttpTestingController = TestBed.get(HttpTestingController);
 
     const mockResponse = {
       userId: 1,
@@ -46,7 +47,6 @@ describe('TodoService', () => {
       done();
     });
 
-    const httpMock: HttpTestingController = TestBed.get(HttpTestingController);
     const mockRequest = httpMock.expectOne(
       'https://jsonplaceholder.typicode.com/todos/1'
     );

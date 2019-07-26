@@ -12,21 +12,21 @@ export class TodoService {
 
   public getTodo(id: number): Observable<Todo> {
     if (!id) {
-      throw new TypeError('Unable to load todo');
+      throw new TypeError('Unable to load Todo');
     }
 
     return this.http
       .get('https://jsonplaceholder.typicode.com/todos/' + id)
       .pipe(
         map(response => {
-          const xx: Todo = {
+          const transformedTodo: Todo = {
             todoId: response['id'],
             userId: response['userId'],
             title: response['title'],
             workDone: response['completed'],
             loadTime: Date.now()
           };
-          return xx;
+          return transformedTodo;
         })
       );
   }
